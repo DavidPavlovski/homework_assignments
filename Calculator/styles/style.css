@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
+
+:root {
+   --blue: #b5d7ff;
+   --blue-hover: #01a1f7;
+   --blue-active: #0292e7;
+
+   --red: #ffaf95;
+   --red-hover: #df3b15;
+   --red-active: #ba220a;
+
+   --green: #baeca9;
+   --green-hover: #45c932;
+   --green-active: #38b927;
+
+   --grey: #dee1e6;
+   --grey-hover: #6a798c;
+   --grey-active: #4e5d6f;
+}
+
+*,
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Roboto Mono', monospace;
+}
+body {
+   min-height: 100vh;
+   min-width: 100vw;
+   display: flex;
+   background: linear-gradient(45deg, #ffaaaa, #aaf);
+}
+
+#calculator {
+   margin: auto;
+   display: grid;
+   width: fit-content;
+   height: fit-content;
+   align-content: center;
+   justify-content: center;
+   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+   grid-template-columns: repeat(4, 100px);
+   box-shadow: 10px 10px 5rem 5px rgba(0, 0, 0, 0.7);
+   background-color: #b5b6ba;
+}
+
+#calculator > button {
+   cursor: pointer;
+   font-size: 2rem;
+   border: 1px solid #fff;
+}
+
+#display {
+   grid-column: 1/ -1;
+   background-color: #e0e1e4;
+   padding: 1rem;
+   display: flex;
+   flex-flow: column nowrap;
+   align-items: flex-end;
+   justify-content: space-around;
+   word-wrap: break-word;
+   word-break: break-all;
+}
+#input {
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: #444;
+}
+#result {
+   font-size: 2.5rem;
+   font-weight: 500;
+}
+
+.row-two {
+   grid-row: span 2;
+}
+.col-two {
+   grid-column: span 2;
+}
+
+.blue {
+   background-color: var(--blue);
+}
+.blue:hover {
+   background-color: var(--blue-hover);
+}
+.blue:active,
+.blue-active {
+   background-color: var(--blue-active);
+}
+
+.red {
+   background-color: var(--red);
+}
+.red:hover {
+   background-color: var(--red-hover);
+}
+.red:active,
+.red-active {
+   background-color: var(--red-active);
+}
+
+.green {
+   background-color: var(--green);
+}
+.green:hover {
+   background-color: var(--green-hover);
+}
+.green:active,
+.green-active {
+   background-color: var(--green-active);
+}
+
+.grey {
+   background-color: var(--grey);
+}
+.grey:hover {
+   background-color: var(--grey-hover);
+}
+.grey:active,
+.grey-active {
+   background-color: var(--grey-active);
+}
