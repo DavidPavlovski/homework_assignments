@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap');
+
+:root {
+   --table-width: 70%;
+   --color-yellow: #ffe919;
+}
+
+*,
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Karla", sans-serif;
+}
+button {
+   cursor: pointer;
+}
+
+.nav {
+   background-color: var(--color-yellow);
+   display: flex;
+   height: 64px;
+   padding: 0 24px;
+   align-items: center;
+   justify-content: space-between;
+   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+#logo {
+   cursor: pointer;
+   width: 6rem;
+}
+#error-msg {
+   text-align: center;
+   padding: 20px 0;
+   color: red;
+   background-color: pink;
+}
+
+.container {
+   display: flex;
+   flex-flow: row wrap;
+   margin: 3rem 0;
+   align-items: center;
+   justify-content: space-evenly;
+   gap: 20px;
+}
+
+.container h3 {
+   text-align: center;
+}
+
+.card {
+   display: flex;
+   flex-flow: column nowrap;
+   align-items: center;
+   gap: 1rem;
+   width: 30%;
+   background-color: #fff;
+   border: 1px solid #d3d3d3;
+   border-radius: 20px;
+   padding: 20px;
+   box-shadow: 0 15px 5px -10px rgba(0, 0, 0, 0.5);
+}
+.card img {
+   height: 250px;
+   width: 100%;
+   border-radius: 50px;
+   filter: grayscale(1) blur(0.5px);
+   transition: all 200ms ease-in;
+}
+
+.card:hover img {
+   border-radius: 10px;
+   filter: grayscale(0) blur(0);
+}
+
+.fetch-btn {
+   display: block;
+   padding: 5px 60px;
+   min-width: 60%;
+   flex-basis: 60%;
+   font-size: 16px;
+   font-weight: 600;
+   border-radius: 5px;
+   border: none;
+   color: #000;
+   background-color: var(--color-yellow);
+   transition: all 200ms ease-in;
+}
+
+.fetch-btn:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 15px 7px -10px rgba(0, 0, 0, 0.5), inset 0 0 8px 2px rgba(0, 0, 0, 0.3);
+}
+
+#caption {
+   font-size: 2.5rem;
+   padding: 10px 0;
+   background-color: #a3a3a3;
+   color: var(--color-yellow);
+}
+#caption-container {
+   position: relative;
+}
+
+#caption-container button {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   left: 10px;
+   padding: 10px 20px;
+}
+table {
+   width: var(--table-width);
+   margin: 3rem auto 0;
+   border-collapse: collapse;
+}
+
+thead {
+   border-bottom: 1px solid black;
+}
+
+thead th:nth-child(even) {
+   background-color: #e3e3e3;
+}
+thead th:nth-child(odd) {
+   background-color: #d3d3d3;
+}
+
+table tr:nth-child(odd) td:nth-child(odd),
+table tr:nth-child(even) td:nth-child(even) {
+   background-color: #e3e3e3;
+}
+table tr:nth-child(odd) td:nth-child(even),
+table tr:nth-child(even) td:nth-child(odd) {
+   background-color: #d3d3d3;
+}
+
+tr td,
+th {
+   padding: 15px;
+   font-size: 24px;
+}
+tfoot td {
+   width: 50%;
+   padding: 0;
+   height: 3rem;
+}
+
+.btns {
+   display: flex;
+   margin: 0 auto 3rem;
+   width: var(--table-width);
+   height: 3rem;
+}
+
+.btns button {
+   width: 50%;
+   height: 100%;
+   font-size: 18px;
+}
+
+.hidden {
+   display: none;
+}

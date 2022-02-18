@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="star wars api app">
+    <meta name="author" content="David Pavlovski">
+    <meta name="keywords" content="Star Wars">
+    <title>Jedi Archives</title>
+    <link rel='stylesheet' href='./assets/stylesheets/style.css'>
+    <script src=" ./app.js" type="module"></script>
+</head>
+
+<body>
+    <nav class="nav">
+        <img id="logo" src="./assets/images/logo.svg" alt="star wars logo" data-back>
+        <h3>The Coruscant Archives</h3>
+    </nav>
+
+    <h2 id="error-msg" class="hidden"></h2>
+    <section class="container">
+        <div class="card">
+            <img src="./assets/images/luke-skywalker.jpg" />
+            <button class="fetch-btn" data-fetch-api value="characters">See Characters</button>
+        </div>
+        <div class="card">
+            <img src="./assets/images/millenium-falcon.jpg" />
+            <button class="fetch-btn" data-fetch-api value="ships">See Space ships</button>
+        </div>
+        <div class="card">
+            <img src="./assets/images/tatooine.jpeg" />
+            <button class="fetch-btn" data-fetch-api value="planets">See Planets</button>
+        </div>
+        <div class="card">
+            <img src="./assets/images/jawas.jpg" />
+            <button class="fetch-btn" data-fetch-api value="species">See Species</button>
+        </div>
+        <div class="card">
+            <img src="./assets/images/podracer.jpg" />
+            <button class="fetch-btn" data-fetch-api value="vehicles">See Vehicles</button>
+        </div>
+    </section>
+
+
+    <table id="table" class="hidden">
+        <caption id="caption-container">
+            <button id="back" data-back>Go back</button>
+            <h1 id="caption"></h1>
+        </caption>
+        <thead id="table-header">
+        </thead>
+        <tbody id="table-data">
+        </tbody>
+    </table>
+
+    <div id="btns" class="btns hidden">
+        <button data-load-prev>load previous</button>
+        <button data-load-next>load next</button>
+    </div>
+
+</body>
+
+</html>
