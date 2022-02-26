@@ -1,4 +1,5 @@
 import API from './assets/scripts/API_CONFIG.js';
+import { sortCountries, generateGrid } from './assets/scripts/utils.js';
 
 const searchButton = document.getElementById('search-button');
 const searchTerm = document.getElementById('search-term');
@@ -15,7 +16,7 @@ const pageState = {
    data: []
 };
 
-const fetchCountries = async (searchVal = '') => {
+const fetchCountries = async (pageState, searchVal = '') => {
    try {
       pageState.loading = true;
       pageState.error = false;
@@ -31,30 +32,14 @@ const fetchCountries = async (searchVal = '') => {
    }
 };
 
-const generateCountryCard = (country) => {
-   const card = document.createElement('div');
-   card.classList.add('card');
-   card.innerHTML = `
-    <img src=${country.flags.svg} alt=flag of ${country.name.official}>
-    <h2>Name: ${country.name.official}</h2>
-    <p>Capital: ${country.capital}</p>
-    <p>Population: ${country.population} </p>
-    <p>Area: ${country.area} km<sup>2</sup></p>
-  `;
-   return card;
-};
-
 (async () => {
-   await fetchCountries();
-   pageState.data.forEach((country) => {
-      const card = generateCountryCard(country);
-      countriesContainer.appendChild(card);
-   });
+   await fetchCountries(pageState);
+   generateGrid(countriesContainer, pageState.data);
 })();
 
 searchButton.addEventListener('click', async function(){
    countriesContainer.innerHTML = '';
-   await fetchCountries(searchTerm.value);
+   await fetchCountries(pageState, searchTerm.value);
    if (!pageState.data.length) {
       countriesContainer.innerHTML = `<h2>No results found for '${searchTerm.value}'</h2>`;
       return;
@@ -66,34 +51,6 @@ searchButton.addEventListener('click', async function(){
 
    searchTerm.value = '';
 });
-const sortCountries = (sortBy, descending) => {
-   let sorted;
-   console.log(descending);
-   if (sortBy === 'name') {
-      sorted = pageState.data.sort((a, b) => {
-         if (descending) {
-            return String(a.name.official).localeCompare(b.name.official);
-         }
-         return String(b.name.official).localeCompare(a.name.official);
-      });
-   } else if (sortBy === 'capital') {
-      sorted = pageState.data.sort((a, b) => {
-         if (descending) {
-            return String(a.capital).localeCompare(b.capital);
-         }
-         return String(b.capital).localeCompare(a.capital);
-      });
-   } else {
-      sorted = pageState.data.sort((a, b) => {
-         return descending ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy];
-      });
-   }
-   countriesContainer.innerHTML = '';
-   sorted.forEach((country) => {
-      const card = generateCountryCard(country);
-      countriesContainer.appendChild(card);
-   });
-};
 
 sortBtns.forEach((btn) => {
    btn.addEventListener('click', (e) => {
@@ -101,6 +58,7 @@ sortBtns.forEach((btn) => {
          pageState.descending = !pageState.descending;
       }
       pageState.sortBy = e.target.value;
-      sortCountries(pageState.sortBy, pageState.descending);
+      const sortedArr = sortCountries(pageState, pageState.sortBy, pageState.descending);
+      generateGrid(countriesContainer, sortedArr);
    });
 });
