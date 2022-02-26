@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest countries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/stylesheets/index.css">
+    <script src="./app.js" type="module"></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="nav">
+        <h3>
+            Rest Countries
+        </h3>
+        <div class="nav-search">
+            <input id="search-term" type="text" name="searchTerm" placeholder="search country">
+            <button id="search-button">
+                <img src="./assets/images/icons/search-icon.svg" alt="search-icon">
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+
+    <h1>Rest Countries</h1>
+    <div id="spinner"></div>
+
+    <div id="sort-container">
+        <button data-sort value="name">Sort by Name</button>
+        <button data-sort value="capital">Sort by Capital</button>
+        <button data-sort value="population">Sort by Population</button>
+        <button data-sort value="area">Sort by Area</button>
+    </div>
+    <main id="container" class="grid">
+    </main>
+    <h2 id="error-msg" class="hidden">Something went wrong ...</h2>
+</body>
+
+</html>

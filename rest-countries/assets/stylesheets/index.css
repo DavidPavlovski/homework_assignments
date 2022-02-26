@@ -1,0 +1,143 @@
+:root {
+   --white: #fff;
+   --paleBlue: #b3d0ef;
+   --lightBlue: #89b9e7;
+   --blue: #2f91d3;
+   --medBlue: #1c74b4;
+   --darkBlue: #005996;
+
+   --font-size-XL: 2rem;
+   --font-size-L: 1.5rem;
+   --font-size-M: 1.2rem;
+   --font-size-S: 1rem;
+   --font-size-XS: 0.8rem;
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   font-family: 'Open Sans', sans-serif;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+}
+h1 {
+   font-size: var(--font-size-XL);
+   text-align: center;
+}
+
+.nav {
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 20px;
+   background-color: var(--medBlue);
+}
+
+.nav h3 {
+   font-size: var(--font-size-L);
+   letter-spacing: 1.1px;
+   color: var(--white);
+}
+
+.nav-search {
+   position: relative;
+   align-items: center;
+   display: flex;
+}
+
+.nav-search button {
+   position: absolute;
+   margin: 0;
+   padding: 0;
+   right: 15px;
+   cursor: pointer;
+   background: none;
+   border: none;
+}
+.nav-search button img {
+   width: 25px;
+   height: 25px;
+}
+
+.nav-search input {
+   width: 240px;
+   height: 40px;
+   border-radius: 25px;
+   border: none;
+   text-indent: 15px;
+   font-size: var(--font-size-M);
+   background-color: var(--paleBlue);
+}
+
+.nav-search input:focus {
+   outline: 3px solid var(--darkBlue);
+}
+
+.grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   grid-gap: 2rem;
+   padding: 0 30px;
+}
+
+.card {
+   width: 100%;
+   padding: 20px;
+   background-color: var(--paleBlue);
+}
+
+.card img {
+   width: 100%;
+   object-fit: contain;
+}
+
+.hidden {
+   display: none;
+}
+
+#spinner {
+   height: 75px;
+   width: 75px;
+   margin: 0 auto;
+   border: 5px solid var(--darkBlue);
+   border-top-color: var(--lightBlue);
+   border-bottom-color: var(--lightBlue);
+   border-radius: 50%;
+   animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+#error-msg {
+   background-color: pink;
+   color: red;
+   font-size: var(--font-size-XL);
+   text-align: center;
+}
+
+#sort-container {
+   display: flex;
+   align-items: center;
+   padding: 10px 0;
+   justify-content: space-evenly;
+   margin-bottom: 20px;
+   background-color: var(--blue);
+}
+
+#sort-container button {
+   height: 40px;
+   width: 120px;
+   cursor: pointer;
+}
