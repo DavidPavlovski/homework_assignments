@@ -1,0 +1,46 @@
+body {
+   min-height: 100vh;
+   background-color: #0093e9;
+   background-image: linear-gradient(180deg, #fff 40%, #0d6efd 100%);
+}
+
+.icon {
+   width: 40px;
+   margin: 0 10px;
+}
+
+.page {
+   display: none;
+}
+.page-active {
+   display: block;
+   padding: 20px 0;
+}
+.hidden {
+   display: none;
+}
+
+.nav-link {
+   text-transform: capitalize;
+}
+
+#loading-spinner {
+   text-align: center;
+   width: 50%;
+   margin: 2rem auto;
+}
+
+#loading-spinner img {
+   width: 100px;
+   margin-bottom: 10px;
+   animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+}
