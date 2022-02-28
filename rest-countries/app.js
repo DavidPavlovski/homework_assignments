@@ -1,5 +1,5 @@
 import API from './assets/scripts/API_CONFIG.js';
-import { sortCountries, generateGrid } from './assets/scripts/utils.js';
+import { sortCountries, generateGrid, generateCountryCard } from './assets/scripts/utils.js';
 
 const searchButton = document.getElementById('search-button');
 const searchTerm = document.getElementById('search-term');
@@ -17,18 +17,25 @@ const pageState = {
 };
 
 const fetchCountries = async (pageState, searchVal = '') => {
-   try {
-      pageState.loading = true;
-      pageState.error = false;
-      errorMsg.classList.add('hidden');
-      spinner.classList.remove('hidden');
-      const data = searchTerm.value ? await API.searchCountries(searchVal) : await API.fetchCountries();
-      pageState.data = data;
-      pageState.loading = false;
-      spinner.classList.add('hidden');
-   } catch (e) {
-      pageState.error = true;
-      errorMsg.classList.remove('hidden');
+   if (sessionStorage.getItem('countries') && !searchVal) {
+      pageState.data = JSON.parse(sessionStorage.getItem('countries'));
+   } else {
+      try {
+         pageState.loading = true;
+         pageState.error = false;
+         errorMsg.classList.add('hidden');
+         spinner.classList.remove('hidden');
+         const data = searchTerm.value ? await API.searchCountries(searchVal) : await API.fetchCountries();
+         if (!searchVal) {
+            sessionStorage.setItem('countries', JSON.stringify(data));
+         }
+         pageState.data = data;
+         pageState.loading = false;
+         spinner.classList.add('hidden');
+      } catch (e) {
+         pageState.error = true;
+         errorMsg.classList.remove('hidden');
+      }
    }
 };
 
