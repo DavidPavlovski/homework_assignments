@@ -12,19 +12,19 @@ const displayStatistics = (container, data) => {
                <div class='col-6 card'>
                   <div class='card-body'> 
                      <h3 class='card-title'>Humidity</h3>
-                     <p class='card-text'>Average humidity : ${statistics.averageHumidity}</p>
-                     <p class='card-text'>Max humidity : ${statistics.max.humidity}</p>
-                     <p class='card-text'>Min humidity : ${statistics.min.humidity}</p>
+                     <p class='card-text'>Average humidity : ${statistics.averageHumidity} %</p>
+                     <p class='card-text'>Max humidity : ${statistics.max.humidity} %</p>
+                     <p class='card-text'>Min humidity : ${statistics.min.humidity} %</p>
                   </div>
                </div>
                <div class='col-6 card'>
                   <div class='card-body'> 
                      <h3 class='card-title'>Temperature</h3>
-                     <p class='card-text'>Average Temperature : ${statistics.averageTemp.toFixed(2)} C<sup>o</sup></p>
-                     <p class='card-text'>Max Temperature : ${statistics.max.temp} C<sup>o</sup>
+                     <p class='card-text'>Average Temperature : ${statistics.averageTemp.toFixed(2)} <sup>o</sup>C</p>
+                     <p class='card-text'>Max Temperature : ${statistics.max.temp} <sup>o</sup>C
                         / date : <b>${statistics.max.date}</b>
                       </p>
-                     <p class='card-text'>Min Temperature : ${statistics.min.temp} C<sup>o</sup>
+                     <p class='card-text'>Min Temperature : ${statistics.min.temp} <sup>o</sup>C
                         / date : <b>${statistics.min.date}</b>
                      </p>
                   </div>
@@ -40,7 +40,6 @@ const displayHourly = (container, data) => {
       return;
    }
    const { list } = data.data;
-   console.log(list[0]);
    const tbody = document.createElement('tbody');
    list.forEach((el) => {
       const tableRow = document.createElement('tr');
@@ -49,7 +48,7 @@ const displayHourly = (container, data) => {
          <td>${el.weather[0].description}</td>
          <td>${el.dt_txt}</td>
          <td>${el.main.temp} C<sup>o</sup></td>
-         <td>${el.main.humidity} g/m<sup>3</sup</td>
+         <td>${el.main.humidity} %</td>
          <td>${el.wind.speed} m/sec</td>
       `;
       tbody.appendChild(tableRow);
