@@ -3,6 +3,7 @@ export const getMinMaxAverage = (data) => {
    let max = { temp: Number.NEGATIVE_INFINITY, date: '', humidity: Number.NEGATIVE_INFINITY };
    let averageTemp = 0;
    let averageHumidity = 0;
+
    for (let i = 0; i < data.length; i++) {
       let index = data[i];
       if (index.main.humidity < min.humidity) {
