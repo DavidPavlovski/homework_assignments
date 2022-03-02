@@ -9,7 +9,7 @@ const displayStatistics = (container, data) => {
       <h1>Weather Data for : ${data.cityName}</h1>
       <div class='container my-5'> 
             <div class='row'> 
-               <div class='col-6 card'>
+               <div class='col-sm-12 col-md-6 card'>
                   <div class='card-body'> 
                      <h3 class='card-title'>Humidity</h3>
                      <p class='card-text'>Average humidity : ${statistics.averageHumidity} %</p>
@@ -17,7 +17,7 @@ const displayStatistics = (container, data) => {
                      <p class='card-text'>Min humidity : ${statistics.min.humidity} %</p>
                   </div>
                </div>
-               <div class='col-6 card'>
+               <div class='col-sm-12 col-md-6 card'>
                   <div class='card-body'> 
                      <h3 class='card-title'>Temperature</h3>
                      <p class='card-text'>Average Temperature : ${statistics.averageTemp.toFixed(2)} <sup>o</sup>C</p>
@@ -44,7 +44,7 @@ const displayHourly = (container, data) => {
    list.forEach((el) => {
       const tableRow = document.createElement('tr');
       tableRow.innerHTML = `
-         <td><img src='http://openweathermap.org/img/wn/${el.weather[0].icon}.png'></td>
+         <td><img src='http://openweathermap.org/img/w/${el.weather[0].icon}.png'></td>
          <td>${el.weather[0].description}</td>
          <td>${el.dt_txt}</td>
          <td>${el.main.temp} C<sup>o</sup></td>
